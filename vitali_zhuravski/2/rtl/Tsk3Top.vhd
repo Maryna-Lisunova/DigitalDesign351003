@@ -38,12 +38,12 @@ begin
     U1 : DEL_INV port map (I => C, O => nC);
     U2 : DEL_INV port map (I => D, O => nD);
     
-    U3 : NOR2 port map (I0 => A, I1 => B, O => nAnB);
-    U4 : AND2 port map (I0 => nAnB, I1 => C, O => nAnBC);
-    U5 : AND2 port map (I0 => nAnB, I1 => nC, O => nAnBnC);
+    U3 : DEL_NOR2 port map (I0 => A, I1 => B, O => nAnB);
+    U4 : DEL_AND2 port map (I0 => nAnB, I1 => C, O => nAnBC);
+    U5 : DEL_AND2 port map (I0 => nAnB, I1 => nC, O => nAnBnC);
     
-    U6 : AND2 port map (I0 => nAnBC, I1 => D, O => led_out(3));
-    U7 : AND2 port map (I0 => nAnBC, I1 => nD, O => led_out(2));
-    U8 : AND2 port map (I0 => nAnBnC, I1 => D, O => led_out(1));
-    U9 : AND2 port map (I0 => nAnBnC, I1 => nD, O => led_out(0));
+    U6 : DEL_AND2 port map (I0 => nAnBC, I1 => D, O => led_out(3));
+    U7 : DEL_AND2 port map (I0 => nAnBC, I1 => nD, O => led_out(2));
+    U8 : DEL_AND2 port map (I0 => nAnBnC, I1 => D, O => led_out(1));
+    U9 : DEL_AND2 port map (I0 => nAnBnC, I1 => nD, O => led_out(0));
 end structure;
