@@ -54,7 +54,7 @@ begin
     begin
         for i in 0 to 191 loop
             sw_in <= std_logic_vector(to_unsigned(i, 16));
-                    wait for 35 ns;
+                    wait for 55 ns;
             report "Gi=" & std_logic'image(greater_in) &
                    " Si=" & std_logic'image(smaller_in) &
                    " N1=" & integer'image(to_integer(unsigned(num1))) &

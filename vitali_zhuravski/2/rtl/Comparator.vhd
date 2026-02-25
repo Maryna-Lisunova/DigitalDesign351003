@@ -7,10 +7,8 @@ use work.delayed_components.all;
 -- ?? ???? ??????? ????? ?????, ????? ? greater, ?
 -- smaller ????? 0.
 
--- greater_out = greater_in + (not greater_in)first(not second) = 
---             = greater_in + first(not second)
--- smaller_out = smaller_in + (not smaller_in)(not first)second =
---             = smaller_in + (not first)second
+-- greater_out = greater_in + first(not second)(not smaller_in)
+-- smaller_out = smaller_in + (not first)second(not greater_in)
 entity COMPARATOR is
     port (
         greater_in : in std_logic;
@@ -30,30 +28,30 @@ architecture structure of COMPARATOR is
     alias Go : std_logic is greater_out;
     alias So : std_logic is smaller_out;
 
-    signal nFr : std_logic;
-    signal nSr : std_logic;
+    signal nSnSMr : std_logic;
+    signal nFnGRr : std_logic;
     
-    signal nF : std_logic;
-    signal nS : std_logic;
+    signal nSnSM : std_logic;
+    signal nFnGR : std_logic;
     
-    signal FnSr : std_logic;
-    signal nFSr : std_logic;
+    signal FnSnSMr : std_logic;
+    signal nFSnGRr : std_logic;
     
-    signal FnS : std_logic;
-    signal nFS : std_logic;
+    signal FnSnSM : std_logic;
+    signal nFSnGR : std_logic;
 begin
-    U1 : DEL_INV port map(I => F, O => nFr);
-    U2 : DEL_INV port map(I => S, O => nSr);
+    U1 : DEL_NOR2 port map(I0 => S, I1 => Si, O => nSnSMr);
+    U2 : DEL_NOR2 port map(I0 => F, I1 => Gi, O => nFnGRr);
     
-    W1 : DEL_WIRE port map(I => nFr, O => nF);
-    W2 : DEL_WIRE port map(I => nSr, O => nS);
+    W1 : DEL_WIRE port map(I => nSnSMr, O => nSnSM);
+    W2 : DEL_WIRE port map(I => nFnGRr, O => nFnGR);
     
-    U3 : DEL_AND2 port map(I0 => F, I1 => nS, O => FnSr);
-    U4 : DEL_AND2 port map(I0 => nF, I1 => S, O => nFSr);
+    U3 : DEL_AND2 port map(I0 => F, I1 => nSnSM, O => FnSnSMr);
+    U4 : DEL_AND2 port map(I0 => S, I1 => nFnGR, O => nFSnGRr);
     
-    W3 : DEL_WIRE port map(I => FnSr, O => FnS); 
-    W4 : DEL_WIRE port map(I => nFSr, O => nFS); 
+    W3 : DEL_WIRE port map(I => FnSnSMr, O => FnSnSM); 
+    W4 : DEL_WIRE port map(I => nFSnGRr, O => nFSnGR); 
     
-    U5 : DEL_OR2 port map(I0 => Gi, I1 => FnS, O => Go);
-    U6 : DEL_OR2 port map(I0 => Si, I1 => nFS, O => So);
+    U5 : DEL_OR2 port map(I0 => Gi, I1 => FnSnSM, O => Go);
+    U6 : DEL_OR2 port map(I0 => Si, I1 => nFSnGR, O => So);
 end structure;
