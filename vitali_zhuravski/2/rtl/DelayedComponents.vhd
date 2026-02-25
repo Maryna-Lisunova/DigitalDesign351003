@@ -7,6 +7,7 @@ package delayed_components is
     constant NOR2_DELAY : time := 5 ns;
     constant AND2_DELAY : time := 10 ns;
     constant WIRE_DELAY : time := 300 ps;
+    constant OR2_DELAY : time := 5 ns;
     
     component DEL_INV is
         generic (
@@ -46,6 +47,17 @@ package delayed_components is
         );
         port (
             I : in std_logic;
+            O : out std_logic
+        );
+    end component;
+    
+    component DEL_OR2 is
+        generic (
+            delay : time := OR2_DELAY
+        );
+        port (
+            I0 : in std_logic;
+            I1 : in std_logic;
             O : out std_logic
         );
     end component;
