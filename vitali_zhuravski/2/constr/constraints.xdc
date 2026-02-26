@@ -9,6 +9,8 @@
 
 #??????? ??? 5
 #set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets led_out_OBUF[0]]
+#??????? ??? 6
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets QnW]
 
 ## Switches
 set_property -dict { PACKAGE_PIN V17   IOSTANDARD LVCMOS33 } [get_ports {sw_in[0]}]
