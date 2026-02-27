@@ -16,8 +16,8 @@ end tsk6_top;
 -- D - data
 
 architecture structure of tsk6_top is
-    alias W : std_logic is sw_in(1);
-    alias D : std_logic is sw_in(0);
+    signal W : std_logic;
+    signal D : std_logic;
 
     signal Q : std_logic;
     signal nQ : std_logic;
@@ -27,6 +27,9 @@ architecture structure of tsk6_top is
     signal QnW : std_logic;
     signal Q2 : std_logic;
 begin
+    W <= sw_in(1);
+    D <= sw_in(0);
+
     led_out(15 downto 2) <= "00000000000000";
     
     U1 : LUT1
