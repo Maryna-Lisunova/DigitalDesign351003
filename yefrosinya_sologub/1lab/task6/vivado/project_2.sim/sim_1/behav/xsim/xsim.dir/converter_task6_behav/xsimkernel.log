@@ -1,7 +1,0 @@
-Running: xsim.dir/converter_task6_behav/xsimk.exe -simmode gui -wdb converter_task6_behav.wdb -simrunnum 0 -socket 52597
-Design successfully loaded
-Design Loading Memory Usage: 12716 KB (Peak: 12716 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 13764 KB (Peak: 13764 KB)
-Simulation CPU Usage: 62 ms

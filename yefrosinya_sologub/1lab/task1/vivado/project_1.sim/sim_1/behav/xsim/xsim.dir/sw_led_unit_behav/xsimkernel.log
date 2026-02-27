@@ -1,7 +1,0 @@
-Running: xsim.dir/sw_led_unit_behav/xsimk.exe -simmode gui -wdb sw_led_unit_behav.wdb -simrunnum 0 -socket 52594
-Design successfully loaded
-Design Loading Memory Usage: 12720 KB (Peak: 12720 KB)
-Design Loading CPU Usage: 30 ms
-Simulation completed
-Simulation Memory Usage: 13648 KB (Peak: 13648 KB)
-Simulation CPU Usage: 46 ms

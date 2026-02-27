@@ -1,1 +1,0 @@
--wto "9aadf11390e54f6fa1562456d1e0236f" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "converter_task6_behav" "xil_defaultlib.converter_task6" -log "elaborate.log" 

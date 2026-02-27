@@ -1,8 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../project_1.srcs/sources_1/new/MUX2_gate.vhd" \
-"../../../../../rtl/NOT_gate.vhd" \
-"../../../../../rtl/task7.vhd" \
-
-# Do not sort compile order
-nosort
